@@ -89,4 +89,19 @@ class CalcController < ApplicationController
    
    end
    
+   def blank_random_form
+   
+   render("calc_templates/random_form.html.erb")
+   end
+   
+   
+   def random_form_results
+       @min = params.fetch("user_min").to_i
+       @max = params.fetch("user_max").to_i
+       @random = rand(@max - @min)
+       
+       render("calc_templates/random_results.html.erb")
+   
+   end
+   
 end
